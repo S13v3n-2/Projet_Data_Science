@@ -1,0 +1,104 @@
+version: "3.9"
+
+# Architecture : 4 services interconnectés
+# - postgres   : backend de stockage pour MLflow (métadonnées des runs)
+# - mlflow     : serveur de tracking des expériences (UI + API)
+# - api        : service FastAPI exposant les prédictions du meilleur modèle
+# - streamlit  : dashboard décisionnel pour les équipes métier
+
+services:
+
+  # 1. Base de données PostgreSQL
+  # MLflow a besoin d'un backend relationnel pour stocker les runs, paramètres
+  # et métriques de façon persistante. PostgreSQL est plus robuste que SQLite
+  # pour un usage multi-utilisateurs ou multi-notebooks simultanés.
+  postgres:
+    image: postgres:15-alpine
+    container_name: churn_postgres
+    env_file:
+      - ./mlflow/.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mlflow -d mlflow_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # 2. Serveur MLflow
+  # Expose l'interface web sur le port 5000 et l'API de tracking.
+  # Les artefacts (modèles sérialisés, graphiques) sont stockés dans un volume
+  # local monté dans le conteneur pour pouvoir y accéder depuis le host.
+  mlflow:
+    build:
+      context: ./mlflow
+      dockerfile: Dockerfile
+    container_name: churn_mlflow
+    env_file:
+      - ./mlflow/.env
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_artifacts:/mlflow/artifacts
+    command: >
+      server
+        --backend-store-uri postgresql://mlflow:mlflow_secret@postgres:5432/mlflow_db
+        --artifacts-destination /mlflow/artifacts
+        --serve-artifacts
+        --default-artifact-root mlflow-artifacts:/mlflow/artifacts
+        --host 0.0.0.0
+        --port 5000
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # 3. API FastAPI
+  # Charge le meilleur modèle enregistré dans MLflow au démarrage
+  # et expose des endpoints REST pour les prédictions.
+  # Le volume mlflow_artifacts est monté en lecture seule pour accéder aux modèles.
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: churn_api
+    ports:
+      - "8000:8000"
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - MODEL_NAME=churn_classifier
+    volumes:
+      - mlflow_artifacts:/mlflow/artifacts:ro
+    depends_on:
+      - mlflow
+    restart: unless-stopped
+
+  # 4. Dashboard Streamlit
+  # Interface décisionnelle destinée aux équipes marketing et CRM.
+  # Communique avec l'API pour les prédictions en temps réel
+  # et avec MLflow pour la comparaison des modèles.
+  streamlit:
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    container_name: churn_dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    volumes:
+      - ./data:/app/data:ro
+    depends_on:
+      - api
+      - mlflow
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    name: churn_postgres_data
+  mlflow_artifacts:
+    name: churn_mlflow_artifacts

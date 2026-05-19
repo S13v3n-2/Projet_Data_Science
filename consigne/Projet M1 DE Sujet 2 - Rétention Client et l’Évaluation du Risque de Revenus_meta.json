@@ -1,0 +1,2261 @@
+{
+  "table_of_contents": [
+    {
+      "title": "Projet Data Science",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          237.0703125,
+          73.68017578125
+        ],
+        [
+          360.5303649902344,
+          72.03369140625
+        ],
+        [
+          360.5303649902344,
+          88.79949951171875
+        ],
+        [
+          235.908203125,
+          88.79949951171875
+        ]
+      ]
+    },
+    {
+      "title": "Projet 2 - Syst\u00e8me Intelligent Multi-Mod\u00e8les pour la R\u00e9tention Client et \nl'\u00c9valuation du Risque de Revenus",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          86.5771484375,
+          90.556640625
+        ],
+        [
+          518.91015625,
+          88.91015625
+        ],
+        [
+          518.91015625,
+          120.95947265625
+        ],
+        [
+          86.5771484375,
+          120.95947265625
+        ]
+      ]
+    },
+    {
+      "title": "Cadre Th\u00e9orique et R\u00f4le du Projet\nMachine Learning Supervis\u00e9, Deep Learning, Dashboarding et API",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          99.06982421875,
+          280.7255859375
+        ],
+        [
+          502.8883972167969,
+          279.0791015625
+        ],
+        [
+          502.8883972167969,
+          311.06951904296875
+        ],
+        [
+          97.90771484375,
+          311.06951904296875
+        ]
+      ]
+    },
+    {
+      "title": "Machine Learning Supervis\u00e9 : Fondements, M\u00e9thodes et R\u00f4le dans le Projet",
+      "heading_level": null,
+      "page_id": 0,
+      "polygon": [
+        [
+          72.02399444580078,
+          341.23388671875
+        ],
+        [
+          526.435546875,
+          339.58740234375
+        ],
+        [
+          525.9090576171875,
+          356.30950927734375
+        ],
+        [
+          70.888671875,
+          356.30950927734375
+        ]
+      ]
+    },
+    {
+      "title": "Deep Learning : R\u00f4le, Int\u00e9r\u00eat et Analyse Critique",
+      "heading_level": null,
+      "page_id": 1,
+      "polygon": [
+        [
+          72.02399444580078,
+          377.45654296875
+        ],
+        [
+          367.45367431640625,
+          375.81005859375
+        ],
+        [
+          367.45367431640625,
+          392.42950439453125
+        ],
+        [
+          70.888671875,
+          392.42950439453125
+        ]
+      ]
+    },
+    {
+      "title": "Dashboarding et Data Visualization : De la Pr\u00e9diction \u00e0 la D\u00e9cision",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          72.02399444580078,
+          129.2490234375
+        ],
+        [
+          472.4179992675781,
+          127.6025390625
+        ],
+        [
+          472.4179992675781,
+          143.99951171875
+        ],
+        [
+          70.888671875,
+          143.99951171875
+        ]
+      ]
+    },
+    {
+      "title": "(Cette partie est propos\u00e9e \u00e0 titre optionnelle)",
+      "heading_level": null,
+      "page_id": 2,
+      "polygon": [
+        [
+          71.76025390625,
+          504.6114501953125
+        ],
+        [
+          285.8279724121094,
+          504.6114501953125
+        ],
+        [
+          285.8279724121094,
+          516.6114501953125
+        ],
+        [
+          70.59814453125,
+          516.6114501953125
+        ]
+      ]
+    },
+    {
+      "title": "R\u00f4le Global du Projet",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          72.02399444580078,
+          156.416015625
+        ],
+        [
+          203.07861328125,
+          156.416015625
+        ],
+        [
+          203.07861328125,
+          171.59954833984375
+        ],
+        [
+          72.02399444580078,
+          171.59954833984375
+        ]
+      ]
+    },
+    {
+      "title": "Objectifs P\u00e9dagogiques du Projet",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          201.6259765625,
+          391.4695129394531
+        ],
+        [
+          401.5401306152344,
+          390.216796875
+        ],
+        [
+          401.5401306152344,
+          405.5094909667969
+        ],
+        [
+          200.4638671875,
+          405.5094909667969
+        ]
+      ]
+    },
+    {
+      "title": "Comp\u00e9tences RNCP vis\u00e9es (RNCP40875 \u2013 Bloc 2)",
+      "heading_level": null,
+      "page_id": 3,
+      "polygon": [
+        [
+          71.76025390625,
+          582.0322265625
+        ],
+        [
+          369.16455078125,
+          580.3857421875
+        ],
+        [
+          369.16455078125,
+          596.9595184326172
+        ],
+        [
+          71.76025390625,
+          596.9595184326172
+        ]
+      ]
+    },
+    {
+      "title": "Comp\u00e9tences transverses :",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.4697265625,
+          146.94873046875
+        ],
+        [
+          199.2840118408203,
+          146.94873046875
+        ],
+        [
+          199.2840118408203,
+          158.96148681640625
+        ],
+        [
+          71.4697265625,
+          158.96148681640625
+        ]
+      ]
+    },
+    {
+      "title": "Veuillez consulter la grille de notation d\u00e9taill\u00e9e afin d'avoir une vision globale de \nl'ensemble des comp\u00e9tences, crit\u00e8res d'\u00e9valuation et modalit\u00e9s de notation.",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.17919921875,
+          233.1214599609375
+        ],
+        [
+          487.64398193359375,
+          231.74267578125
+        ],
+        [
+          487.64398193359375,
+          258.95147705078125
+        ],
+        [
+          70.01708984375,
+          258.95147705078125
+        ]
+      ]
+    },
+    {
+      "title": "Voici la liste des comp\u00e9tences de votre certification RNCP \u00e9valu\u00e9es avec ce projet :",
+      "heading_level": null,
+      "page_id": 4,
+      "polygon": [
+        [
+          71.76025390625,
+          274.55145263671875
+        ],
+        [
+          495.34912109375,
+          273.31640625
+        ],
+        [
+          494.18701171875,
+          286.55145263671875
+        ],
+        [
+          70.59814453125,
+          286.55145263671875
+        ]
+      ]
+    },
+    {
+      "title": "Cahier des Charges du Projet",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          211.50390625,
+          76.31951904296875
+        ],
+        [
+          390.5232849121094,
+          74.9150390625
+        ],
+        [
+          390.5232849121094,
+          90.3594970703125
+        ],
+        [
+          210.341796875,
+          90.3594970703125
+        ]
+      ]
+    },
+    {
+      "title": "Description du projet",
+      "heading_level": null,
+      "page_id": 6,
+      "polygon": [
+        [
+          71.4697265625,
+          121.42822265625
+        ],
+        [
+          200.4638671875,
+          119.78173828125
+        ],
+        [
+          200.32150268554688,
+          135.4794921875
+        ],
+        [
+          70.3076171875,
+          135.4794921875
+        ]
+      ]
+    },
+    {
+      "title": "Attention :",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          72.02399444580078,
+          129.2490234375
+        ],
+        [
+          127.61599731445312,
+          127.6025390625
+        ],
+        [
+          127.61599731445312,
+          141.6815185546875
+        ],
+        [
+          71.17919921875,
+          141.6815185546875
+        ]
+      ]
+    },
+    {
+      "title": "Objectif",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          71.4697265625,
+          437.1416015625
+        ],
+        [
+          121.4404296875,
+          435.4951171875
+        ],
+        [
+          121.4404296875,
+          451.969482421875
+        ],
+        [
+          71.4697265625,
+          451.969482421875
+        ]
+      ]
+    },
+    {
+      "title": "(optionnel) :",
+      "heading_level": null,
+      "page_id": 7,
+      "polygon": [
+        [
+          71.17919921875,
+          663.0414581298828
+        ],
+        [
+          131.63600158691406,
+          663.0414581298828
+        ],
+        [
+          131.63600158691406,
+          675.0414581298828
+        ],
+        [
+          71.17919921875,
+          675.0414581298828
+        ]
+      ]
+    },
+    {
+      "title": "Dataset",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          72.02399444580078,
+          129.95953369140625
+        ],
+        [
+          117.373046875,
+          128.42578125
+        ],
+        [
+          117.373046875,
+          143.99951171875
+        ],
+        [
+          72.02399444580078,
+          143.99951171875
+        ]
+      ]
+    },
+    {
+      "title": "Caract\u00e9ristiques :",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          71.4697265625,
+          217.04150390625
+        ],
+        [
+          155.5919952392578,
+          215.689453125
+        ],
+        [
+          155.5919952392578,
+          229.04150390625
+        ],
+        [
+          71.4697265625,
+          229.04150390625
+        ]
+      ]
+    },
+    {
+      "title": "Variables cl\u00e9s (exemples) :",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          71.76025390625,
+          313.6552734375
+        ],
+        [
+          202.30801391601562,
+          312.0087890625
+        ],
+        [
+          202.30801391601562,
+          325.6715087890625
+        ],
+        [
+          70.59814453125,
+          325.6715087890625
+        ]
+      ]
+    },
+    {
+      "title": "Probl\u00e9matiques pr\u00e9dictives possibles",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.888671875,
+          548.279296875
+        ],
+        [
+          291.3147277832031,
+          546.6328125
+        ],
+        [
+          291.3147277832031,
+          562.6094970703125
+        ],
+        [
+          70.888671875,
+          563.09765625
+        ]
+      ]
+    },
+    {
+      "title": "La t\u00e2che pr\u00e9dictive la plus naturelle du dataset est :",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.888671875,
+          621.8814697265625
+        ],
+        [
+          339.19000244140625,
+          620.31298828125
+        ],
+        [
+          339.19000244140625,
+          633.8814697265625
+        ],
+        [
+          70.888671875,
+          634.30810546875
+        ]
+      ]
+    },
+    {
+      "title": "Int\u00e9r\u00eat business :",
+      "heading_level": null,
+      "page_id": 8,
+      "polygon": [
+        [
+          70.3076171875,
+          677.0814666748047
+        ],
+        [
+          153.19198608398438,
+          676.29345703125
+        ],
+        [
+          153.19198608398438,
+          689.0814666748047
+        ],
+        [
+          70.3076171875,
+          689.0814666748047
+        ]
+      ]
+    },
+    {
+      "title": "Autres t\u00e2ches pr\u00e9dictives possibles du dataset",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.76025390625,
+          74.091796875
+        ],
+        [
+          305.0899963378906,
+          72.4453125
+        ],
+        [
+          305.0899963378906,
+          86.48150634765625
+        ],
+        [
+          70.59814453125,
+          86.48150634765625
+        ]
+      ]
+    },
+    {
+      "title": "Estimation du Revenu \u00e0 Risque (R\u00e9gression) : Combien l'entreprise risque-t-elle de \nperdre si ces clients churnent ?",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.4697265625,
+          87.67529296875
+        ],
+        [
+          501.55596923828125,
+          86.02880859375
+        ],
+        [
+          501.55596923828125,
+          114.08148193359375
+        ],
+        [
+          71.4697265625,
+          114.08148193359375
+        ]
+      ]
+    },
+    {
+      "title": "Estimation du Revenu \u00e0 Risque (R\u00e9gression) : Combien l'entreprise risque-t-elle de \nperdre si ces clients churnent ?",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.76025390625,
+          225.97998046875
+        ],
+        [
+          501.55596923828125,
+          224.33349609375
+        ],
+        [
+          501.55596923828125,
+          252.1114501953125
+        ],
+        [
+          70.59814453125,
+          252.1114501953125
+        ]
+      ]
+    },
+    {
+      "title": "Estimation de la Valeur Vie Client CLV (R\u00e9gression) : Estimer la valeur future d'un \nclient en fonction de son comportement.",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.4697265625,
+          350.511474609375
+        ],
+        [
+          507.2619934082031,
+          349.8779296875
+        ],
+        [
+          507.2619934082031,
+          376.31146240234375
+        ],
+        [
+          70.3076171875,
+          376.31146240234375
+        ]
+      ]
+    },
+    {
+      "title": "Pr\u00e9diction de l'Engagement Client (R\u00e9gression ou Classification)",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          72.02399444580078,
+          460.93145751953125
+        ],
+        [
+          403.93194580078125,
+          460.1923828125
+        ],
+        [
+          403.93194580078125,
+          472.93145751953125
+        ],
+        [
+          70.888671875,
+          472.93145751953125
+        ]
+      ]
+    },
+    {
+      "title": "Pr\u00e9requis et exigences principales",
+      "heading_level": null,
+      "page_id": 9,
+      "polygon": [
+        [
+          71.4697265625,
+          621.5595092773438
+        ],
+        [
+          273.7085876464844,
+          620.724609375
+        ],
+        [
+          273.7085876464844,
+          635.5995178222656
+        ],
+        [
+          71.4697265625,
+          635.5995178222656
+        ]
+      ]
+    },
+    {
+      "title": "R\u00e9sultats attendus",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          72.02399444580078,
+          74.50341796875
+        ],
+        [
+          182.451171875,
+          72.85693359375
+        ],
+        [
+          182.0554656982422,
+          88.79949951171875
+        ],
+        [
+          70.888671875,
+          88.79949951171875
+        ]
+      ]
+    },
+    {
+      "title": "Recommandations:",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          71.4697265625,
+          191.759521484375
+        ],
+        [
+          188.08531188964844,
+          190.1689453125
+        ],
+        [
+          188.08531188964844,
+          205.79949951171875
+        ],
+        [
+          70.3076171875,
+          205.79949951171875
+        ]
+      ]
+    },
+    {
+      "title": "Recommandations:",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          71.17919921875,
+          387.33544921875
+        ],
+        [
+          188.08531188964844,
+          385.68896484375
+        ],
+        [
+          188.08531188964844,
+          401.7895202636719
+        ],
+        [
+          71.17919921875,
+          401.7895202636719
+        ]
+      ]
+    },
+    {
+      "title": "Commencez par une analyse exploratoire approfondie",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          71.76025390625,
+          555.8514709472656
+        ],
+        [
+          349.59600830078125,
+          554.865234375
+        ],
+        [
+          349.59600830078125,
+          567.8514709472656
+        ],
+        [
+          70.59814453125,
+          567.8514709472656
+        ]
+      ]
+    },
+    {
+      "title": "V\u00e9rifiez les distributions des classes",
+      "heading_level": null,
+      "page_id": 10,
+      "polygon": [
+        [
+          70.888671875,
+          679.9614562988281
+        ],
+        [
+          253.8599853515625,
+          678.3515625
+        ],
+        [
+          253.8599853515625,
+          691.9614562988281
+        ],
+        [
+          70.888671875,
+          691.9614562988281
+        ]
+      ]
+    },
+    {
+      "title": "Analysez la corr\u00e9lation des variables et la redondance des variables",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          72.02399444580078,
+          143.48150634765625
+        ],
+        [
+          416.90673828125,
+          142.00927734375
+        ],
+        [
+          416.3780212402344,
+          155.48150634765625
+        ],
+        [
+          71.17919921875,
+          155.48150634765625
+        ]
+      ]
+    },
+    {
+      "title": "Impl\u00e9mentez d'abord un mod\u00e8le baseline simple, puis complexifiez progressivement",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          72.02399444580078,
+          253.91143798828125
+        ],
+        [
+          501.6220397949219,
+          252.32373046875
+        ],
+        [
+          501.6220397949219,
+          265.91143798828125
+        ],
+        [
+          71.4697265625,
+          265.91143798828125
+        ]
+      ]
+    },
+    {
+      "title": "Ajoutez progressivement des mod\u00e8les plus complexes :",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          71.4697265625,
+          377.8681640625
+        ],
+        [
+          350.8659973144531,
+          376.2216796875
+        ],
+        [
+          350.8659973144531,
+          390.1114501953125
+        ],
+        [
+          70.3076171875,
+          390.1114501953125
+        ]
+      ]
+    },
+    {
+      "title": "Comparez syst\u00e9matiquement au moins 4 mod\u00e8les et choisissez un mod\u00e8le candidat final",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          72.02399444580078,
+          391.86328125
+        ],
+        [
+          518.1720581054688,
+          390.216796875
+        ],
+        [
+          518.1720581054688,
+          403.9114685058594
+        ],
+        [
+          72.02399444580078,
+          403.9114685058594
+        ]
+      ]
+    },
+    {
+      "title": "\u00c9vitez le data leakage : un imp\u00e9ratif m\u00e9thodologique",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          71.4697265625,
+          570.91845703125
+        ],
+        [
+          342.3000183105469,
+          569.27197265625
+        ],
+        [
+          342.3000183105469,
+          583.3314514160156
+        ],
+        [
+          71.4697265625,
+          583.3314514160156
+        ]
+      ]
+    },
+    {
+      "title": "Utilisez la validation crois\u00e9e si pertinent et \u00e9valuez la robustesse",
+      "heading_level": null,
+      "page_id": 11,
+      "polygon": [
+        [
+          71.17919921875,
+          681.7614593505859
+        ],
+        [
+          398.0879821777344,
+          681.64453125
+        ],
+        [
+          398.0879821777344,
+          693.7614593505859
+        ],
+        [
+          70.01708984375,
+          693.7614593505859
+        ]
+      ]
+    },
+    {
+      "title": "Optimisez les hyperparam\u00e8tres de mani\u00e8re raisonnable et justifi\u00e9e",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          72.02399444580078,
+          87.263671875
+        ],
+        [
+          411.09619140625,
+          87.263671875
+        ],
+        [
+          410.7960510253906,
+          100.281494140625
+        ],
+        [
+          71.17919921875,
+          100.281494140625
+        ]
+      ]
+    },
+    {
+      "title": "Analysez les erreurs : comprendre les limites fait partie du travail",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          72.02399444580078,
+          184.8814697265625
+        ],
+        [
+          408.4320373535156,
+          183.5830078125
+        ],
+        [
+          408.4320373535156,
+          196.8814697265625
+        ],
+        [
+          70.888671875,
+          196.8814697265625
+        ]
+      ]
+    },
+    {
+      "title": "Travaillez l'interpr\u00e9tabilit\u00e9 : expliquer est souvent aussi important que pr\u00e9dire",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          71.76025390625,
+          281.511474609375
+        ],
+        [
+          476.14794921875,
+          279.90234375
+        ],
+        [
+          476.14794921875,
+          293.511474609375
+        ],
+        [
+          70.59814453125,
+          293.511474609375
+        ]
+      ]
+    },
+    {
+      "title": "N.B. : Quand applique-t-on les techniques d'explicabilit\u00e9 (Feature Importance, \nSHAP) ?",
+      "heading_level": null,
+      "page_id": 12,
+      "polygon": [
+        [
+          89.19189453125,
+          695.5614624023438
+        ],
+        [
+          495.865966796875,
+          694.40478515625
+        ],
+        [
+          495.865966796875,
+          721.361457824707
+        ],
+        [
+          88.02978515625,
+          721.57177734375
+        ]
+      ]
+    },
+    {
+      "title": "Feature Importance (importance globale)",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          88.9013671875,
+          214.8662109375
+        ],
+        [
+          302.37799072265625,
+          213.2197265625
+        ],
+        [
+          302.37799072265625,
+          227.00152587890625
+        ],
+        [
+          87.7392578125,
+          227.00152587890625
+        ]
+      ]
+    },
+    {
+      "title": "Plusieurs techniques possibles :",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          89.482421875,
+          311.185546875
+        ],
+        [
+          244.73001098632812,
+          309.5390625
+        ],
+        [
+          244.73001098632812,
+          323.6314697265625
+        ],
+        [
+          88.3203125,
+          323.6314697265625
+        ]
+      ]
+    },
+    {
+      "title": "Principe :",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          107.78564453125,
+          462.7314453125
+        ],
+        [
+          154.3280029296875,
+          462.7314453125
+        ],
+        [
+          154.3280029296875,
+          474.7314453125
+        ],
+        [
+          107.78564453125,
+          474.7314453125
+        ]
+      ]
+    },
+    {
+      "title": "SHAP (explicabilit\u00e9 locale et globale)",
+      "heading_level": null,
+      "page_id": 13,
+      "polygon": [
+        [
+          106.3330078125,
+          559.3314514160156
+        ],
+        [
+          297.3380126953125,
+          558.9814453125
+        ],
+        [
+          297.3380126953125,
+          571.3314514160156
+        ],
+        [
+          106.3330078125,
+          571.3314514160156
+        ]
+      ]
+    },
+    {
+      "title": "Structurez proprement votre code",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          72.02399444580078,
+          74.48150634765625
+        ],
+        [
+          246.69598388671875,
+          73.68017578125
+        ],
+        [
+          246.69598388671875,
+          86.48150634765625
+        ],
+        [
+          71.17919921875,
+          86.48150634765625
+        ]
+      ]
+    },
+    {
+      "title": "Versionnez votre travail r\u00e9guli\u00e8rement avec Git",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          71.76025390625,
+          240.1114501953125
+        ],
+        [
+          316.1400146484375,
+          238.740234375
+        ],
+        [
+          316.1400146484375,
+          252.1114501953125
+        ],
+        [
+          70.59814453125,
+          252.1114501953125
+        ]
+      ]
+    },
+    {
+      "title": "Dashboard : ind\u00e9pendant, exploitable, orient\u00e9 d\u00e9cision",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          71.4697265625,
+          378.1114501953125
+        ],
+        [
+          350.8199768066406,
+          377.044921875
+        ],
+        [
+          350.8199768066406,
+          390.1114501953125
+        ],
+        [
+          70.3076171875,
+          390.216796875
+        ]
+      ]
+    },
+    {
+      "title": "(optionnel) Industrialisation via API : pour aller plus loin",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          71.4697265625,
+          488.5314636230469
+        ],
+        [
+          365.98394775390625,
+          486.94775390625
+        ],
+        [
+          365.98394775390625,
+          502.58935546875
+        ],
+        [
+          70.3076171875,
+          504.23583984375
+        ]
+      ]
+    },
+    {
+      "title": "Testez votre API ind\u00e9pendamment du dashboard",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          70.888671875,
+          502.3314514160156
+        ],
+        [
+          324.228515625,
+          501.76611328125
+        ],
+        [
+          324.17999267578125,
+          514.3314514160156
+        ],
+        [
+          69.7265625,
+          514.3314514160156
+        ]
+      ]
+    },
+    {
+      "title": "Pourquoi industrialiser votre solution en l'exposant via une API REST",
+      "heading_level": null,
+      "page_id": 14,
+      "polygon": [
+        [
+          107.20458984375,
+          681.7614593505859
+        ],
+        [
+          469.7619934082031,
+          681.64453125
+        ],
+        [
+          469.7619934082031,
+          693.7614593505859
+        ],
+        [
+          107.20458984375,
+          693.7614593505859
+        ]
+      ]
+    },
+    {
+      "title": "L'API devra inclure au minimum :",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          107.20458984375,
+          74.48150634765625
+        ],
+        [
+          275.05999755859375,
+          72.85693359375
+        ],
+        [
+          275.05999755859375,
+          86.48150634765625
+        ],
+        [
+          106.04248046875,
+          86.48150634765625
+        ]
+      ]
+    },
+    {
+      "title": "Adoptez une posture professionnelle",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          72.02399444580078,
+          281.511474609375
+        ],
+        [
+          257.6039733886719,
+          279.90234375
+        ],
+        [
+          257.6039733886719,
+          293.511474609375
+        ],
+        [
+          71.4697265625,
+          293.511474609375
+        ]
+      ]
+    },
+    {
+      "title": "Exigences Fonctionnelles D\u00e9taill\u00e9es (EF)",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          72.02399444580078,
+          591.49951171875
+        ],
+        [
+          312.607421875,
+          589.85302734375
+        ],
+        [
+          312.5572814941406,
+          606.3195190429688
+        ],
+        [
+          70.888671875,
+          607.14111328125
+        ]
+      ]
+    },
+    {
+      "title": "EF1 : Acquisition et Pr\u00e9paration des Donn\u00e9es",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          71.17919921875,
+          624.1614532470703
+        ],
+        [
+          305.1839904785156,
+          623.1943359375
+        ],
+        [
+          305.1839904785156,
+          636.1614532470703
+        ],
+        [
+          71.17919921875,
+          636.1614532470703
+        ]
+      ]
+    },
+    {
+      "title": "EF2 : Mod\u00e9lisation Multi-Algorithmes",
+      "heading_level": null,
+      "page_id": 15,
+      "polygon": [
+        [
+          70.888671875,
+          693.1614532470703
+        ],
+        [
+          269.0539855957031,
+          692.3466796875
+        ],
+        [
+          269.0539855957031,
+          705.1614532470703
+        ],
+        [
+          70.888671875,
+          705.1614532470703
+        ]
+      ]
+    },
+    {
+      "title": "EF3 : Syst\u00e8me d'\u00c9valuation",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          72.02399444580078,
+          73.68017578125
+        ],
+        [
+          214.98001098632812,
+          72.03369140625
+        ],
+        [
+          214.98001098632812,
+          86.48150634765625
+        ],
+        [
+          70.888671875,
+          86.48150634765625
+        ]
+      ]
+    },
+    {
+      "title": "EF4 : Dashboard Interactif (Obligatoire)",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          72.02399444580078,
+          143.244140625
+        ],
+        [
+          281.135986328125,
+          141.59765625
+        ],
+        [
+          281.135986328125,
+          155.48150634765625
+        ],
+        [
+          71.17919921875,
+          155.48150634765625
+        ]
+      ]
+    },
+    {
+      "title": "EF5 : API (optionnelle)",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          70.888671875,
+          212.396484375
+        ],
+        [
+          188.96600341796875,
+          210.75
+        ],
+        [
+          188.96600341796875,
+          224.48150634765625
+        ],
+        [
+          70.888671875,
+          224.48150634765625
+        ]
+      ]
+    },
+    {
+      "title": "Livrables :",
+      "heading_level": null,
+      "page_id": 16,
+      "polygon": [
+        [
+          71.4697265625,
+          309.3895263671875
+        ],
+        [
+          137.04324340820312,
+          308.30419921875
+        ],
+        [
+          137.04324340820312,
+          323.42950439453125
+        ],
+        [
+          71.4697265625,
+          323.42950439453125
+        ]
+      ]
+    }
+  ],
+  "page_stats": [
+    {
+      "page_id": 0,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          119
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          11
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 1,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          131
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "ListItem",
+          17
+        ],
+        [
+          "Text",
+          9
+        ],
+        [
+          "ListGroup",
+          5
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "SectionHeader",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 2,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          132
+        ],
+        [
+          "Line",
+          41
+        ],
+        [
+          "ListItem",
+          18
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListGroup",
+          4
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 3,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          138
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "ListItem",
+          20
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "ListGroup",
+          4
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 4,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          245
+        ],
+        [
+          "Line",
+          109
+        ],
+        [
+          "TableCell",
+          20
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 5,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          153
+        ],
+        [
+          "TableCell",
+          111
+        ],
+        [
+          "Line",
+          73
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 6,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          119
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "Text",
+          10
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "SectionHeader",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 7,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          106
+        ],
+        [
+          "Line",
+          38
+        ],
+        [
+          "Text",
+          8
+        ],
+        [
+          "ListItem",
+          8
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "SectionHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 8,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          136
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "ListItem",
+          20
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 9,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          212
+        ],
+        [
+          "Line",
+          49
+        ],
+        [
+          "ListItem",
+          20
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListGroup",
+          5
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "Code",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 10,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          105
+        ],
+        [
+          "Line",
+          40
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 11,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          118
+        ],
+        [
+          "Line",
+          47
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 12,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          142
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "ListItem",
+          16
+        ],
+        [
+          "Text",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 13,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          159
+        ],
+        [
+          "Line",
+          46
+        ],
+        [
+          "Text",
+          13
+        ],
+        [
+          "TableCell",
+          12
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "Table",
+          1
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 14,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          127
+        ],
+        [
+          "Line",
+          48
+        ],
+        [
+          "SectionHeader",
+          6
+        ],
+        [
+          "Text",
+          6
+        ],
+        [
+          "ListItem",
+          5
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 15,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          106
+        ],
+        [
+          "Line",
+          42
+        ],
+        [
+          "ListItem",
+          7
+        ],
+        [
+          "SectionHeader",
+          5
+        ],
+        [
+          "Text",
+          5
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "ListGroup",
+          2
+        ],
+        [
+          "PageFooter",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    },
+    {
+      "page_id": 16,
+      "text_extraction_method": "pdftext",
+      "block_counts": [
+        [
+          "Span",
+          93
+        ],
+        [
+          "Line",
+          24
+        ],
+        [
+          "ListItem",
+          6
+        ],
+        [
+          "SectionHeader",
+          4
+        ],
+        [
+          "Text",
+          4
+        ],
+        [
+          "PageHeader",
+          3
+        ],
+        [
+          "PageFooter",
+          1
+        ],
+        [
+          "ListGroup",
+          1
+        ]
+      ],
+      "block_metadata": {
+        "llm_request_count": 0,
+        "llm_error_count": 0,
+        "llm_tokens_used": 0,
+        "previous_text": "",
+        "previous_type": "",
+        "previous_order": 0
+      }
+    }
+  ],
+  "debug_data_path": "debug_data\\Projet M1 DE Sujet 2 - R\u00e9tention Client et l\u2019\u00c9valuation du Risque de Revenus"
+}
