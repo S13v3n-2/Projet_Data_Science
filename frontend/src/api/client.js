@@ -22,3 +22,8 @@ export async function predict(clientFeatures) {
   const { data } = await api.post('/predict', clientFeatures)
   return data
 }
+
+export async function getStats() {
+  const { data } = await api.get('/stats')
+  return data
+}

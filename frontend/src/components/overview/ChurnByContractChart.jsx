@@ -1,19 +1,13 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 
-const data = [
-  { contract: 'Mensuel', rate: 12.1 },
-  { contract: 'Annuel', rate: 8.3 },
-  { contract: 'Biannuel', rate: 5.9 },
-]
+const COLORS = ['#6366F1', '#818CF8', '#A5B4FC', '#C7D2FE']
 
-const colors = ['#6366F1', '#818CF8', '#A5B4FC']
-
-export default function ChurnByContractChart() {
+export default function ChurnByContractChart({ data }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Taux de résiliation par type de contrat</CardTitle>
+        <CardTitle>Taux de resiliation par type de contrat</CardTitle>
         <p className="text-xs text-slate-500 mt-1">En pourcentage de la base clients</p>
       </CardHeader>
       <CardContent>
@@ -35,7 +29,7 @@ export default function ChurnByContractChart() {
             />
             <Bar dataKey="rate" radius={[6, 6, 0, 0]}>
               {data.map((_, i) => (
-                <Cell key={i} fill={colors[i]} />
+                <Cell key={i} fill={COLORS[i % COLORS.length]} />
               ))}
             </Bar>
           </BarChart>
