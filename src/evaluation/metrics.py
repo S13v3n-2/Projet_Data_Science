@@ -1,8 +1,8 @@
-"""
+﻿"""
 Calcul des métriques d'évaluation pour les deux tâches prédictives.
 
 Ce module centralise toutes les métriques afin que chaque notebook utilise
-exactement les mêmes formules et les mêmes noms — indispensable pour comparer
+exactement les mêmes formules et les mêmes noms - indispensable pour comparer
 les modèles de façon équitable dans MLflow et dans le rapport.
 """
 
@@ -64,7 +64,7 @@ def compute_regression_metrics(
 
     RMSE : pénalise les grosses erreurs plus que MAE. Dans un contexte financier,
     sous-estimer le revenu à risque pour un gros client est plus coûteux que
-    sous-estimer pour un petit client — RMSE capture cet aspect.
+    sous-estimer pour un petit client - RMSE capture cet aspect.
     MAE : interprétable directement en euros.
     R² : part de variance expliquée, utile pour comparer entre modèles.
     """
@@ -107,7 +107,7 @@ def compute_business_metrics(
 
 def print_classification_report(y_true, y_pred, model_name: str):
     """Affiche un rapport de classification formaté."""
-    print(f"\nRapport de classification — {model_name}")
+    print(f"\nRapport de classification - {model_name}")
     print("-" * 50)
     print(classification_report(y_true, y_pred, target_names=["Non-Churn", "Churn"]))
 
@@ -118,7 +118,7 @@ def plot_roc_curve(model, X_test, y_test, model_name: str, ax=None) -> plt.Axes:
         _, ax = plt.subplots(figsize=(7, 5))
 
     RocCurveDisplay.from_estimator(model, X_test, y_test, ax=ax, name=model_name)
-    ax.set_title(f"Courbe ROC — {model_name}")
+    ax.set_title(f"Courbe ROC - {model_name}")
     ax.plot([0, 1], [0, 1], "k--", lw=1, label="Classifieur aléatoire")
     ax.legend()
     return ax
@@ -132,7 +132,7 @@ def plot_confusion_matrix(y_true, y_pred, model_name: str, ax=None) -> plt.Axes:
     cm = confusion_matrix(y_true, y_pred)
     disp = ConfusionMatrixDisplay(cm, display_labels=["Non-Churn", "Churn"])
     disp.plot(ax=ax, colorbar=False, cmap="Blues")
-    ax.set_title(f"Matrice de confusion — {model_name}")
+    ax.set_title(f"Matrice de confusion - {model_name}")
     return ax
 
 
@@ -154,7 +154,7 @@ def plot_feature_importance(
         color="steelblue",
     )
     ax.set_xlabel("Importance")
-    ax.set_title(f"Top {top_n} features — {model_name}")
+    ax.set_title(f"Top {top_n} features - {model_name}")
     plt.tight_layout()
     return fig
 
@@ -171,7 +171,7 @@ def plot_regression_scatter(
     ax.plot(lims, lims, "r--", lw=1.5, label="Prédiction parfaite")
     ax.set_xlabel("Valeurs réelles (€)")
     ax.set_ylabel("Valeurs prédites (€)")
-    ax.set_title(f"Réel vs Prédit — {model_name}")
+    ax.set_title(f"Réel vs Prédit - {model_name}")
     ax.xaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{x:,.0f}€"))
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"{x:,.0f}€"))
     ax.legend()

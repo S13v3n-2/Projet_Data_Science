@@ -1,6 +1,6 @@
-# Système Intelligent de Rétention Client — M1 Data Engineering
+﻿# Système Intelligent de Rétention Client - M1 Data Engineering
 
-Projet M1 Data Engineering — Sujet 2 : Système multi-modèles pour la prédiction du churn client
+Projet M1 Data Engineering - Sujet 2 : Système multi-modèles pour la prédiction du churn client
 et l'évaluation du risque de revenus.
 
 ## Architecture
@@ -38,16 +38,16 @@ jupyter lab notebooks/
 ```
 
 Ordre d'exécution :
-1. `01_exploration.ipynb` — EDA
-2. `02_preprocessing.ipynb` — Pipeline de préparation
-3. `03_logistic_regression.ipynb` — Modèle baseline
-4. `04_random_forest.ipynb` — Random Forest
-5. `05_xgboost.ipynb` — XGBoost + RandomizedSearch
-6. `06_mlp_classification.ipynb` — MLP PyTorch (GPU)
-7. `07_regression_revenue.ipynb` — Régression revenu à risque
-8. `08_model_comparison.ipynb` — Comparaison, SHAP, écoresponsabilité
+1. `01_exploration.ipynb` - EDA
+2. `02_preprocessing.ipynb` - Pipeline de préparation
+3. `03_logistic_regression.ipynb` - Modèle baseline
+4. `04_random_forest.ipynb` - Random Forest
+5. `05_xgboost.ipynb` - XGBoost + RandomizedSearch
+6. `06_mlp_classification.ipynb` - MLP PyTorch (GPU)
+7. `07_regression_revenue.ipynb` - Régression revenu à risque
+8. `08_model_comparison.ipynb` - Comparaison, SHAP, écoresponsabilité
 
-## API FastAPI — Documentation
+## API FastAPI - Documentation
 
 Documentation interactive : http://localhost:8000/docs (Swagger UI)
 
@@ -170,7 +170,7 @@ Exemple d'erreur 422 (champ manquant) :
 |--------|---------|------------|----------------|
 | **Random Forest** (champion) | **0.8093** | 0.2727 | 0.2059 |
 | XGBoost | 0.7661 | 0.2472 | 0.2157 |
-| MLP PyTorch | 0.7560 | — | — |
+| MLP PyTorch | 0.7560 | - | - |
 | Logistic Regression | 0.7245 | 0.2851 | 0.6569 |
 
 ## Structure du projet

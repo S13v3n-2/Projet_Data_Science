@@ -1,5 +1,5 @@
-"""
-Page 4 — Simulation et prédiction en temps réel
+﻿"""
+Page 4 - Simulation et prédiction en temps réel
 
 Cette page permet à un responsable marketing ou CRM d'entrer les caractéristiques
 d'un client spécifique et d'obtenir immédiatement sa probabilité de churn
@@ -13,7 +13,7 @@ import plotly.graph_objects as go
 import os
 
 st.set_page_config(page_title="Simulation client", layout="wide")
-st.title("Simulation — Prédiction Client en Temps Réel")
+st.title("Simulation - Prédiction Client en Temps Réel")
 
 API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
 

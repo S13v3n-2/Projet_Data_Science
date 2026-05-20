@@ -1,4 +1,4 @@
-# Dépendances locales pour l'environnement .venv
+﻿# Dépendances locales pour l'environnement .venv
 # Ces packages sont nécessaires pour exécuter les notebooks localement.
 # Les versions sont fixées pour garantir la reproductibilité des résultats.
 
@@ -7,7 +7,7 @@ pandas==2.2.2
 numpy==1.26.4
 scipy==1.13.0
 
-# Machine Learning — modèles classiques
+# Machine Learning - modèles classiques
 scikit-learn==1.4.2
 xgboost==2.0.3
 imbalanced-learn==0.12.3
@@ -18,7 +18,7 @@ torch==2.3.0
 # Interprétabilité
 shap==0.45.1
 
-# MLflow — tracking des expériences
+# MLflow - tracking des expériences
 mlflow==2.13.0
 psycopg2-binary==2.9.9
 

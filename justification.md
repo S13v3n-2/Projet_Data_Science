@@ -1,4 +1,4 @@
-# Justifications des Choix Techniques
+﻿# Justifications des Choix Techniques
 
 Ce document détaille et justifie l'ensemble des décisions techniques prises dans ce projet.
 Chaque choix est argumenté à la fois sur un plan technique et sur un plan métier.
@@ -6,13 +6,13 @@ Chaque choix est argumenté à la fois sur un plan technique et sur un plan mét
 
 ## 1. Choix du dataset et des tâches prédictives
 
-**Dataset :** Customer Churn Prediction Business Dataset (Kaggle — miadul)
+**Dataset :** Customer Churn Prediction Business Dataset (Kaggle - miadul)
 
 Le dataset contient 10 000 observations clients avec 32 variables couvrant des dimensions
 comportementales, financières, de support et de marketing. Il a été choisi pour sa richesse
 en variables métier directement actionnables par les équipes CRM.
 
-**Tâche 1 — Prédiction du churn (classification binaire)**
+**Tâche 1 - Prédiction du churn (classification binaire)**
 
 C'est la tâche la plus naturelle et la plus stratégique : identifier les clients qui vont
 partir avant qu'ils ne partent réellement. Le taux de churn observé est de 10.2%, ce qui
@@ -21,7 +21,7 @@ représente un déséquilibre modéré qu'on ne peut pas ignorer.
 Intérêt business : déclencher des campagnes de rétention ciblées sur les profils les plus
 à risque réduit le coût d'acquisition clients et stabilise le chiffre d'affaires.
 
-**Tâche 2 — Estimation du revenu à risque (régression)**
+**Tâche 2 - Estimation du revenu à risque (régression)**
 
 La variable cible est construite comme suit :
 `revenue_at_risk = total_revenue × probabilité_de_churn`
@@ -38,7 +38,7 @@ mais c'est une pratique courante et acceptable en analytics marketing.
 
 La consigne impose au moins 4 modèles et au moins 1 modèle de Deep Learning.
 
-**Modèle 1 — Régression Logistique**
+**Modèle 1 - Régression Logistique**
 
 Justification : c'est le modèle de référence (baseline) en classification binaire.
 Ses coefficients sont directement interprétables comme l'impact marginal de chaque feature
@@ -51,7 +51,7 @@ Hyperparamètres :
 - `class_weight='balanced'` : compense le déséquilibre 90/10 automatiquement
 - `solver='lbfgs'` : adapté aux datasets de taille moyenne avec features mixtes
 
-**Modèle 2 — Random Forest**
+**Modèle 2 - Random Forest**
 
 Justification : le Random Forest est robuste aux valeurs aberrantes et aux features non
 normalisées. Il construit 200 arbres indépendants sur des sous-échantillons aléatoires,
@@ -64,7 +64,7 @@ Hyperparamètres :
 - `min_samples_leaf=5` : régularisation supplémentaire
 - `max_features='sqrt'` : décorrèle les arbres pour réduire la variance
 
-**Modèle 3 — XGBoost**
+**Modèle 3 - XGBoost**
 
 Justification : XGBoost est l'algorithme le plus performant sur les datasets tabulaires
 de taille moyenne selon la littérature et les compétitions Kaggle. Il construit des arbres
@@ -77,7 +77,7 @@ Hyperparamètres :
 - `subsample=0.8` et `colsample_bytree=0.8` : régularisation par stochastique
 - `scale_pos_weight` = ratio négatifs/positifs ≈ 8.8 : équivalent de class_weight='balanced'
 
-**Modèle 4 — MLP (PyTorch) — Deep Learning obligatoire**
+**Modèle 4 - MLP (PyTorch) - Deep Learning obligatoire**
 
 Justification de l'inclusion :
 Le MLP peut en théorie capturer des interactions non linéaires complexes entre features
@@ -125,7 +125,7 @@ des seuils possibles.
 |---|---|
 | RMSE | Pénalise les grosses erreurs plus que la MAE. Dans un contexte financier, sous-estimer le risque d'un gros client est plus coûteux. |
 | MAE | Directement interprétable en euros. |
-| R² | Mesure la part de variance expliquée — utile pour comparer les modèles entre eux. |
+| R² | Mesure la part de variance expliquée - utile pour comparer les modèles entre eux. |
 
 
 ## 4. Choix de MLflow + PostgreSQL comme backend
@@ -237,7 +237,7 @@ La stratégie retenue est de remplacer les NaN par la chaîne `"no_complaint"` a
 l'encodage OneHot, ce qui crée une modalité explicite pour ces clients.
 Cela préserve l'information (absence de plainte = signal positif) dans le modèle.
 
-## 11. Feature engineering — Score d'engagement
+## 11. Feature engineering - Score d'engagement
 
 Un score d'engagement composite (0 à 1) est calculé selon la formule de la consigne :
 

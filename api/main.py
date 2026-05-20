@@ -1,5 +1,5 @@
-"""
-API REST — Prédiction de churn et estimation du revenu à risque
+﻿"""
+API REST - Prédiction de churn et estimation du revenu à risque
 
 Cette API expose le modèle ML champion sélectionné après comparaison dans MLflow.
 Elle est déployée via Docker et consommée par le dashboard Streamlit.
@@ -28,9 +28,9 @@ async def lifespan(app: FastAPI):
     """
     Gestionnaire de cycle de vie de l'application.
     Le modèle est chargé une seule fois au démarrage du serveur,
-    pas à chaque requête — indispensable pour des temps de réponse acceptables.
+    pas à chaque requête - indispensable pour des temps de réponse acceptables.
     """
-    logger.info("Démarrage de l'API — chargement du modèle...")
+    logger.info("Démarrage de l'API - chargement du modèle...")
     success = model_service.load()
     if success:
         logger.info(f"Modèle prêt : {model_service.model_info.get('model_name', 'inconnu')}")
@@ -44,7 +44,7 @@ app = FastAPI(
     title="Churn Prediction API",
     description=(
         "API de prédiction de churn client et d'estimation du revenu à risque. "
-        "Développée dans le cadre du Projet M1 Data Science — Rétention Client."
+        "Développée dans le cadre du Projet M1 Data Science - Rétention Client."
     ),
     version="1.0.0",
     lifespan=lifespan,

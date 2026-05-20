@@ -1,4 +1,4 @@
-"""
+﻿"""
 Chargement et gestion du modèle ML depuis MLflow.
 
 Ce module est responsable de charger le modèle champion au démarrage de l'API
@@ -187,5 +187,5 @@ class ModelService:
         return self._loaded
 
 
-# Instance singleton — partagée entre tous les workers FastAPI via lifespan
+# Instance singleton - partagée entre tous les workers FastAPI via lifespan
 model_service = ModelService()

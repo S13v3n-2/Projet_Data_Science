@@ -1,0 +1,104 @@
+# Configuration centralisee du projet ML - Retention Client & Risque de Revenus
+#
+# Ce fichier regroupe tous les hyperparametres utilises dans les notebooks.
+# L'objectif est d'avoir un point de reference unique pour reproduire
+# les resultats, comparer les modeles et faciliter les futurs ajustements.
+#
+# Usage dans un notebook :
+#   import yaml
+#   cfg = yaml.safe_load(open('../config.yaml'))
+#   n_est = cfg['random_forest']['n_estimators']
+
+# Parametres globaux du projet
+random_state: 42
+test_size: 0.2
+
+
+# 1. Regression Logistique (notebook 03)
+# Modele baseline lineaire. C controle la regularisation L2 :
+# une valeur faible penalise plus fortement les gros coefficients.
+logistic_regression:
+  C: 1.0
+  max_iter: 1000
+  solver: lbfgs
+  class_weight: balanced
+
+
+# 2. Random Forest (notebook 04)
+# Modele champion retenu pour l'API (AUC-ROC = 0.8093 sur le test set).
+# max_features='sqrt' reduit la correlation entre les arbres.
+random_forest:
+  n_estimators: 200
+  max_depth: 15
+  min_samples_leaf: 5
+  max_features: sqrt
+  class_weight: balanced
+
+
+# 3. XGBoost - modele de base (notebook 05)
+# scale_pos_weight est calcule dynamiquement dans le notebook
+# comme le ratio n_negatifs / n_positifs (environ 8.79).
+xgboost:
+  n_estimators: 300
+  learning_rate: 0.1
+  max_depth: 6
+  subsample: 0.8
+  colsample_bytree: 0.8
+  eval_metric: auc
+
+
+# 3b. XGBoost - version optimisee (RandomizedSearchCV, notebook 05)
+# Ces valeurs ont ete selectionnees parmi 20 combinaisons aleatoires
+# avec une validation croisee 3-fold. Gain AUC : +0.0481 vs modele de base.
+xgboost_optimized:
+  n_estimators: 108
+  learning_rate: 0.0514
+  max_depth: 3
+  min_child_weight: 1
+  subsample: 0.7599
+  colsample_bytree: 0.8447
+
+
+# 4. MLP PyTorch - classification (notebook 06)
+# Architecture decroissante 256-128-64. Le dropout regularise
+# pour eviter le surapprentissage sur un dataset de 8000 exemples.
+mlp_classification:
+  hidden_dims: [256, 128, 64]
+  dropout_rate: 0.3
+  n_epochs: 50
+  batch_size: 256
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  scheduler_patience: 5
+  scheduler_factor: 0.5
+
+
+# 5. Modeles de regression - revenu a risque (notebook 07)
+regression:
+  # Ridge : regularisation L2 pour eviter le surapprentissage lineaire
+  ridge_alpha: 1.0
+
+  # Random Forest Regressor
+  rf_n_estimators: 200
+  rf_max_depth: 12
+
+  # XGBoost Regressor
+  xgb_n_estimators: 300
+  xgb_learning_rate: 0.1
+  xgb_max_depth: 6
+  xgb_subsample: 0.8
+  xgb_colsample_bytree: 0.8
+
+  # MLP Regressor sklearn
+  mlp_hidden_layer_sizes: [256, 128, 64]
+  mlp_max_iter: 300
+  mlp_early_stopping: true
+  mlp_validation_fraction: 0.1
+
+
+# Infrastructure MLflow
+mlflow:
+  tracking_uri: http://localhost:5000
+  experiment_classification: churn_classification
+  experiment_regression: revenue_at_risk_regression
+  model_registry_name: churn_classifier
