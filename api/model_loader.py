@@ -74,17 +74,15 @@ class ModelService:
                 return False
 
             latest = sorted(versions, key=lambda v: int(v.version), reverse=True)[0]
-            model_uri = f"models:/{MODEL_NAME}/{latest.version}"
 
-            # On essaie sklearn d'abord, puis pytorch
-            try:
-                self.model = mlflow.sklearn.load_model(model_uri)
-                self.model_info["framework"] = "sklearn"
-            except Exception:
-                self.model = mlflow.pytorch.load_model(model_uri)
-                self.model_info["framework"] = "pytorch"
-
+            # Les modèles ont été sauvegardés via joblib.dump + mlflow.log_artifact
+            # (et non mlflow.sklearn.log_model), donc on télécharge le fichier brut.
+            import tempfile
             run = client.get_run(latest.run_id)
+            with tempfile.TemporaryDirectory() as tmp_dir:
+                local_path = client.download_artifacts(latest.run_id, "model/model.joblib", tmp_dir)
+                self.model = joblib.load(local_path)
+                self.model_info["framework"] = "sklearn"
             self.model_info.update({
                 "model_name": MODEL_NAME,
                 "version": latest.version,

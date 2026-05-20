@@ -39,7 +39,15 @@ def fetch_mlflow_runs(experiment_name: str) -> pd.DataFrame:
             }
             record.update(run.data.metrics)
             records.append(record)
-        return pd.DataFrame(records).set_index("model") if records else pd.DataFrame()
+        if not records:
+            return pd.DataFrame()
+        df = pd.DataFrame(records)
+        # En cas de runs multiples pour un même modèle, on garde le meilleur par AUC-ROC
+        if "auc_roc" in df.columns:
+            df = df.sort_values("auc_roc", ascending=False).drop_duplicates(subset=["model"])
+        else:
+            df = df.drop_duplicates(subset=["model"])
+        return df.set_index("model")
     except Exception as e:
         st.warning(f"Connexion MLflow impossible : {e}\nAssurez-vous que le serveur MLflow est démarré.")
         return pd.DataFrame()
