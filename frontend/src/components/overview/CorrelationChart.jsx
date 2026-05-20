@@ -1,18 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 
-const data = [
-  { factor: 'Score satisfaction (CSAT)', corr: 0.18 },
-  { factor: 'Ancienneté', corr: 0.17 },
-  { factor: 'Échecs de paiement', corr: 0.15 },
-  { factor: 'Escalades support', corr: 0.13 },
-  { factor: 'Frais mensuels', corr: 0.11 },
-  { factor: 'Score NPS', corr: 0.10 },
-  { factor: 'Tickets support', corr: 0.08 },
-].sort((a, b) => b.corr - a.corr)
-
 function colorFor(v) {
-  // gradient blue intensity
   if (v >= 0.16) return '#3730A3'
   if (v >= 0.13) return '#4F46E5'
   if (v >= 0.10) return '#6366F1'
@@ -20,13 +9,15 @@ function colorFor(v) {
   return '#A5B4FC'
 }
 
-export default function CorrelationChart() {
+export default function CorrelationChart({ data }) {
+  const maxCorr = Math.max(...data.map((d) => d.corr), 0.1)
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Facteurs corrélés à la résiliation</CardTitle>
+        <CardTitle>Facteurs correles a la resiliation</CardTitle>
         <p className="text-xs text-slate-500 mt-1">
-          Intensité de corrélation avec le départ d'un client
+          Intensite de correlation (valeur absolue) avec le depart d'un client
         </p>
       </CardHeader>
       <CardContent>
@@ -37,7 +28,7 @@ export default function CorrelationChart() {
               type="number"
               stroke="#94A3B8"
               fontSize={11}
-              domain={[0, 0.22]}
+              domain={[0, Math.ceil(maxCorr * 10) / 10 + 0.02]}
               tickLine={false}
               axisLine={false}
               tickFormatter={(v) => v.toFixed(2)}
@@ -54,7 +45,7 @@ export default function CorrelationChart() {
             <Tooltip
               cursor={{ fill: '#F8FAFC' }}
               contentStyle={{ borderRadius: 8, border: '1px solid #E2E8F0', fontSize: 12 }}
-              formatter={(v) => [v.toFixed(2), 'Corrélation']}
+              formatter={(v) => [v.toFixed(3), 'Correlation']}
             />
             <Bar dataKey="corr" radius={[0, 6, 6, 0]}>
               {data.map((d, i) => (

@@ -8,6 +8,7 @@ Endpoints :
 - GET  /health      : vérification du statut du service
 - POST /predict     : prédiction pour un client
 - GET  /model-info  : informations sur le modèle actuellement chargé
+- GET  /stats       : statistiques agregees du dataset pour le dashboard
 """
 
 import logging
@@ -18,6 +19,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from schemas import ClientFeatures, PredictionResponse, HealthResponse, ModelInfoResponse
 from model_loader import model_service
+from stats import compute_stats
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -99,6 +101,22 @@ def predict(client: ClientFeatures):
             status_code=500,
             detail=f"Erreur interne lors du calcul de la prédiction : {str(e)}",
         )
+
+
+@app.get("/stats", tags=["Statistiques"])
+def get_stats():
+    """
+    Retourne les statistiques agregees du dataset : KPIs, distributions,
+    correlations et repartitions par segment.
+    Mis en cache memoire - recalcul uniquement au redemarrage.
+    """
+    try:
+        return compute_stats()
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=503, detail=str(e))
+    except Exception as e:
+        logger.error(f"Erreur calcul statistiques : {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Erreur lors du calcul des statistiques.")
 
 
 @app.get("/model-info", response_model=ModelInfoResponse, tags=["Monitoring"])

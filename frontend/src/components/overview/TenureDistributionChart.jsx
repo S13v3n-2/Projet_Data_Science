@@ -1,24 +1,12 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 
-function gaussian(x, mu, sigma, scale) {
-  return scale * Math.exp(-((x - mu) ** 2) / (2 * sigma ** 2))
-}
-const data = []
-for (let x = 0; x <= 60; x += 2) {
-  data.push({
-    tenure: x,
-    nonChurn: Math.round(gaussian(x, 32, 14, 1100)),
-    churn: Math.round(gaussian(x, 8, 6, 480)),
-  })
-}
-
-export default function TenureDistributionChart() {
+export default function TenureDistributionChart({ data }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Distribution de l'ancienneté par statut</CardTitle>
-        <p className="text-xs text-slate-500 mt-1">Mois d'ancienneté des clients</p>
+        <CardTitle>Distribution de l'anciennete par statut</CardTitle>
+        <p className="text-xs text-slate-500 mt-1">Mois d'anciennete des clients</p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={260}>
@@ -35,7 +23,7 @@ export default function TenureDistributionChart() {
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" vertical={false} />
             <XAxis
-              dataKey="tenure"
+              dataKey="tenure_months"
               stroke="#94A3B8"
               fontSize={11}
               tickLine={false}
@@ -50,7 +38,7 @@ export default function TenureDistributionChart() {
             <Legend
               iconType="circle"
               wrapperStyle={{ fontSize: 12, paddingTop: 4 }}
-              formatter={(v) => (v === 'nonChurn' ? 'Clients actifs' : 'Clients résiliés')}
+              formatter={(v) => (v === 'nonChurn' ? 'Clients actifs' : 'Clients resilies')}
             />
             <Area type="monotone" dataKey="nonChurn" stroke="#6366F1" fill="url(#nonChurnGrad2)" strokeWidth={2} />
             <Area type="monotone" dataKey="churn" stroke="#EF4444" fill="url(#churnGrad2)" strokeWidth={2} />

@@ -1,25 +1,12 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 
-// Bell-ish curves for non-churn (centered ~+30) and churn (centered ~-20)
-function gaussian(x, mu, sigma, scale) {
-  return scale * Math.exp(-((x - mu) ** 2) / (2 * sigma ** 2))
-}
-const data = []
-for (let x = -100; x <= 100; x += 5) {
-  data.push({
-    nps: x,
-    nonChurn: Math.round(gaussian(x, 30, 28, 900)),
-    churn: Math.round(gaussian(x, -20, 32, 320)),
-  })
-}
-
-export default function NPSDistributionChart() {
+export default function NPSDistributionChart({ data }) {
   return (
     <Card>
       <CardHeader>
         <CardTitle>Distribution du score NPS par statut</CardTitle>
-        <p className="text-xs text-slate-500 mt-1">Clients résiliés vs clients actifs</p>
+        <p className="text-xs text-slate-500 mt-1">Clients resilies vs clients actifs</p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={260}>
@@ -35,7 +22,13 @@ export default function NPSDistributionChart() {
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" vertical={false} />
-            <XAxis dataKey="nps" stroke="#94A3B8" fontSize={11} tickLine={false} axisLine={false} />
+            <XAxis
+              dataKey="nps_score"
+              stroke="#94A3B8"
+              fontSize={11}
+              tickLine={false}
+              axisLine={false}
+            />
             <YAxis stroke="#94A3B8" fontSize={11} tickLine={false} axisLine={false} />
             <Tooltip
               contentStyle={{ borderRadius: 8, border: '1px solid #E2E8F0', fontSize: 12 }}
@@ -44,7 +37,7 @@ export default function NPSDistributionChart() {
             <Legend
               iconType="circle"
               wrapperStyle={{ fontSize: 12, paddingTop: 4 }}
-              formatter={(v) => (v === 'nonChurn' ? 'Clients actifs' : 'Clients résiliés')}
+              formatter={(v) => (v === 'nonChurn' ? 'Clients actifs' : 'Clients resilies')}
             />
             <Area type="monotone" dataKey="nonChurn" stroke="#6366F1" fill="url(#nonChurnGrad)" strokeWidth={2} />
             <Area type="monotone" dataKey="churn" stroke="#EF4444" fill="url(#churnGrad)" strokeWidth={2} />
