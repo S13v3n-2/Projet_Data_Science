@@ -1,5 +1,5 @@
-"""
-Page 2 — Analyse du risque et clients prioritaires
+﻿"""
+Page 2 - Analyse du risque et clients prioritaires
 
 Cette page permet aux équipes CRM de filtrer et prioriser les clients
 à contacter dans leurs campagnes de rétention.

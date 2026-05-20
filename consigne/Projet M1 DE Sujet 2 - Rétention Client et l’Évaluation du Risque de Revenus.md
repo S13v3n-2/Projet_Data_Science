@@ -1,4 +1,4 @@
-# **Projet Data Science**
+﻿# **Projet Data Science**
 
 ## **Projet 2 - Système Intelligent Multi-Modèles pour la Rétention Client et l'Évaluation du Risque de Revenus**
 
@@ -155,7 +155,7 @@ En réalisant ce projet, vous apprendrez à :
 - Travailler en équipe dans une logique projet
 - Présenter une solution comme un consultant IA
 
-# **Compétences RNCP visées (RNCP40875 – Bloc 2)**
+# **Compétences RNCP visées (RNCP40875 - Bloc 2)**
 
 Ce projet Data Science constitue l'un des projets majeurs de l'année.
 
@@ -512,7 +512,7 @@ e.g : : le nombre d'échecs de paiement (payment\_failures) est la variable la p
 
 ## Plusieurs techniques possibles :
 
-- Importance native des modèles basés sur les arbres (Random Forest, Gradient Boosting, XGBoost, LightGBM…)
+- Importance native des modèles basés sur les arbres (Random Forest, Gradient Boosting, XGBoost, LightGBM...)
 
 model.feature\_importances\_
 
@@ -556,7 +556,7 @@ Cela vous permettra de suivre vos évolutions et d'éviter la perte de travail.
 
 #### **Dashboard : indépendant, exploitable, orienté décision**
 
-Votre dashboard (Streamlit, Dash/Plotly…) doit être conçu comme un outil décisionnel autonome. Il doit permettre de visualiser les données, d'explorer des indicateurs clés, de comparer les modèles, et d'exécuter des prédictions sur des scénarios saisis par l'utilisateur. L'objectif est de rendre le projet utilisable par un profil métier, même si le code n'est pas exécuté dans un notebook. Le dashboard est donc une composante centrale, et non un simple bonus visuel.
+Votre dashboard (Streamlit, Dash/Plotly...) doit être conçu comme un outil décisionnel autonome. Il doit permettre de visualiser les données, d'explorer des indicateurs clés, de comparer les modèles, et d'exécuter des prédictions sur des scénarios saisis par l'utilisateur. L'objectif est de rendre le projet utilisable par un profil métier, même si le code n'est pas exécuté dans un notebook. Le dashboard est donc une composante centrale, et non un simple bonus visuel.
 
 # **(optionnel) Industrialisation via API : pour aller plus loin**
 
@@ -603,7 +603,7 @@ Vous devez entraîner et comparer au minimum 4 modèles (classification et/ou r�
 
 ## **EF3 : Système d'Évaluation**
 
-Vous devez utiliser des métriques adaptées (classification : Accuracy, Precision, Recall, F1, ROC-AUC ; régression : MAE, RMSE, R²…) et produire des comparatifs (tableaux et graphes) ainsi qu'une analyse d'erreurs.
+Vous devez utiliser des métriques adaptées (classification : Accuracy, Precision, Recall, F1, ROC-AUC ; régression : MAE, RMSE, R²...) et produire des comparatifs (tableaux et graphes) ainsi qu'une analyse d'erreurs.
 
 ### **EF4 : Dashboard Interactif (Obligatoire)**
 

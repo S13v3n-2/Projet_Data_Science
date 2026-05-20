@@ -1,5 +1,5 @@
-"""
-Page 3 — Comparaison des modèles MLflow
+﻿"""
+Page 3 - Comparaison des modèles MLflow
 
 Cette page lit directement les runs depuis le serveur MLflow
 pour afficher une comparaison visuelle des performances des modèles entraînés.
@@ -39,13 +39,21 @@ def fetch_mlflow_runs(experiment_name: str) -> pd.DataFrame:
             }
             record.update(run.data.metrics)
             records.append(record)
-        return pd.DataFrame(records).set_index("model") if records else pd.DataFrame()
+        if not records:
+            return pd.DataFrame()
+        df = pd.DataFrame(records)
+        # En cas de runs multiples pour un même modèle, on garde le meilleur par AUC-ROC
+        if "auc_roc" in df.columns:
+            df = df.sort_values("auc_roc", ascending=False).drop_duplicates(subset=["model"])
+        else:
+            df = df.drop_duplicates(subset=["model"])
+        return df.set_index("model")
     except Exception as e:
         st.warning(f"Connexion MLflow impossible : {e}\nAssurez-vous que le serveur MLflow est démarré.")
         return pd.DataFrame()
 
 
-st.subheader("Classification — Prédiction du churn")
+st.subheader("Classification - Prédiction du churn")
 
 clf_df = fetch_mlflow_runs("churn_classification")
 
@@ -64,7 +72,7 @@ else:
 
     # Graphique radar pour visualiser les compromis entre métriques
     st.markdown("---")
-    st.subheader("Profil de performance — Graphique radar")
+    st.subheader("Profil de performance - Graphique radar")
 
     radar_metrics = ["auc_roc", "f1_churn", "recall_churn", "precision_churn"]
     radar_available = [m for m in radar_metrics if m in clf_df.columns]
@@ -116,7 +124,7 @@ else:
         st.plotly_chart(fig2, use_container_width=True)
 
 st.markdown("---")
-st.subheader("Régression — Estimation du revenu à risque")
+st.subheader("Régression - Estimation du revenu à risque")
 
 reg_df = fetch_mlflow_runs("revenue_at_risk_regression")
 

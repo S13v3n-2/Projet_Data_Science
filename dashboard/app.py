@@ -1,5 +1,5 @@
-"""
-Dashboard décisionnel — Rétention Client & Risque de Revenus
+﻿"""
+Dashboard décisionnel - Rétention Client & Risque de Revenus
 
 Ce dashboard est destiné aux équipes marketing, CRM et direction financière.
 Il transforme les prédictions du modèle ML en informations actionnables :
@@ -9,7 +9,7 @@ quels clients contacter, combien de revenu est exposé, quels leviers actionner.
 import streamlit as st
 
 st.set_page_config(
-    page_title="Rétention Client — Dashboard",
+    page_title="Rétention Client - Dashboard",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -49,8 +49,8 @@ st.markdown("""
 ---
 
 **Navigation :**
-- **01 Vue d'ensemble** — indicateurs globaux, taux de churn, revenu total à risque
-- **02 Analyse du risque** — liste des clients prioritaires, segmentation par risque
-- **03 Comparaison des modèles** — performances MLflow des modèles entraînés
-- **04 Simulation** — entrez les caractéristiques d'un client pour obtenir sa probabilité de churn
+- **01 Vue d'ensemble** - indicateurs globaux, taux de churn, revenu total à risque
+- **02 Analyse du risque** - liste des clients prioritaires, segmentation par risque
+- **03 Comparaison des modèles** - performances MLflow des modèles entraînés
+- **04 Simulation** - entrez les caractéristiques d'un client pour obtenir sa probabilité de churn
 """)

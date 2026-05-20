@@ -1,5 +1,5 @@
-"""
-Page 1 — Vue d'ensemble et KPIs globaux
+﻿"""
+Page 1 - Vue d'ensemble et KPIs globaux
 
 Cette page donne une lecture immédiate de la situation :
 combien de clients sont à risque, quel revenu est exposé,
@@ -15,7 +15,7 @@ import os
 import requests
 
 st.set_page_config(page_title="Vue d'ensemble", layout="wide")
-st.title("Vue d'ensemble — Indicateurs Clés")
+st.title("Vue d'ensemble - Indicateurs Clés")
 
 API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
 DATA_PATH = "/app/data/raw/customer_churn.csv"
