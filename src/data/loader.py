@@ -33,7 +33,7 @@ CATEGORICAL_COLS = [
     "survey_response",
 ]
 
-# La colonne identifiant unique client — on la retire avant la modélisation
+# La colonne identifiant unique client - on la retire avant la modélisation
 # pour éviter qu'elle soit prise comme feature prédictive.
 ID_COL = "customer_id"
 

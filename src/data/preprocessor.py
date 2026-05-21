@@ -29,7 +29,7 @@ PIPELINE_PATH = PROCESSED_DIR / "preprocessing_pipeline.joblib"
 
 # complaint_type est la seule colonne avec des valeurs manquantes (~20% manquants).
 # Ces valeurs manquantes correspondent aux clients sans historique de plainte,
-# donc le NA est informatif — on le remplace par "no_complaint" plutôt que
+# donc le NA est informatif - on le remplace par "no_complaint" plutôt que
 # par la modalité la plus fréquente pour préserver ce signal.
 COMPLAINT_FILL = "no_complaint"
 

@@ -1,10 +1,8 @@
-version: "3.9"
-
 # Architecture : 4 services interconnectés
 # - postgres   : backend de stockage pour MLflow (métadonnées des runs)
 # - mlflow     : serveur de tracking des expériences (UI + API)
 # - api        : service FastAPI exposant les prédictions du meilleur modèle
-# - streamlit  : dashboard décisionnel pour les équipes métier
+# - frontend   : dashboard React via Nginx (port 80)
 
 services:
 
@@ -22,7 +20,7 @@ services:
     ports:
       - "5432:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U mlflow -d mlflow_db"]
+      test: [ "CMD-SHELL", "pg_isready -U mlflow -d mlflow_db" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -77,25 +75,21 @@ services:
       - mlflow
     restart: unless-stopped
 
-  # 4. Dashboard Streamlit
-  # Interface décisionnelle destinée aux équipes marketing et CRM.
-  # Communique avec l'API pour les prédictions en temps réel
-  # et avec MLflow pour la comparaison des modèles.
-  streamlit:
+  # 4. Dashboard React
+  # Build multi-stage : npm run build dans node:20-alpine, puis Nginx sert les
+  # fichiers statiques sur le port 80. VITE_API_URL est l'URL de l'API vue
+  # depuis le navigateur (localhost:8000, pas le nom interne Docker).
+  frontend:
     build:
-      context: ./dashboard
+      context: ./frontend
       dockerfile: Dockerfile
-    container_name: churn_dashboard
+      args:
+        - VITE_API_URL=http://localhost:8000
+    container_name: churn_frontend
     ports:
-      - "8501:8501"
-    environment:
-      - API_BASE_URL=http://api:8000
-      - MLFLOW_TRACKING_URI=http://mlflow:5000
-    volumes:
-      - ./data:/app/data:ro
+      - "80:80"
     depends_on:
       - api
-      - mlflow
     restart: unless-stopped
 
 volumes:
