@@ -2,7 +2,7 @@
 # - postgres   : backend de stockage pour MLflow (métadonnées des runs)
 # - mlflow     : serveur de tracking des expériences (UI + API)
 # - api        : service FastAPI exposant les prédictions du meilleur modèle
-# - streamlit  : dashboard décisionnel pour les équipes métier
+# - frontend   : dashboard React via Nginx (port 80)
 
 services:
 
@@ -73,6 +73,23 @@ services:
       - ./data:/app/data:ro
     depends_on:
       - mlflow
+    restart: unless-stopped
+
+  # 4. Dashboard React
+  # Build multi-stage : npm run build dans node:20-alpine, puis Nginx sert les
+  # fichiers statiques sur le port 80. VITE_API_URL est l'URL de l'API vue
+  # depuis le navigateur (localhost:8000, pas le nom interne Docker).
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://localhost:8000
+    container_name: churn_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api
     restart: unless-stopped
 
 volumes:
