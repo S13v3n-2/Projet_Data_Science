@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom'
-import { Shield, Sparkles, LayoutDashboard, UserSearch, Circle } from 'lucide-react'
+import { Shield, Sparkles, LayoutDashboard, UserSearch, Circle, AlertTriangle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useApiHealth } from '@/hooks/useApiHealth'
 
 const navItems = [
   { to: '/', label: "Vue d'ensemble", icon: LayoutDashboard, end: true },
+  { to: '/clients', label: 'Clients a risque', icon: AlertTriangle },
   { to: '/simulation', label: 'Simulation client', icon: UserSearch },
 ]
 

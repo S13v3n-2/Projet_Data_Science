@@ -27,3 +27,16 @@ export async function getStats() {
   const { data } = await api.get('/stats')
   return data
 }
+
+export async function getClientsAtRisk(params = {}) {
+  const { data } = await api.get('/clients-at-risk', { params })
+  return data
+}
+
+export function getClientsAtRiskExportUrl(params = {}) {
+  const url = new URL(`${baseURL}/clients-at-risk/export`)
+  Object.entries(params).forEach(([k, v]) => {
+    if (v !== undefined && v !== null && v !== '') url.searchParams.set(k, v)
+  })
+  return url.toString()
+}
