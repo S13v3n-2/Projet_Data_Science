@@ -13,9 +13,9 @@ data/processed/
 *.csv
 *.joblib
 *.pth
+.vite
 
 # MLflow
-mlflow/.env
 mlruns/
 
 # Jupyter
