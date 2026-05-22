@@ -1,203 +1,171 @@
-﻿# Système Intelligent de Rétention Client - M1 Data Engineering
+# Retention Client et Risque de Revenus -- M1 Data Engineering
 
-Projet M1 Data Engineering - Sujet 2 : Système multi-modèles pour la prédiction du churn client
-et l'évaluation du risque de revenus.
+Projet de groupe M1 DE -- Carlot Steven  
+Tutrice : Sarah MALAEB
 
-## Architecture
+Prediction du churn client sur 10 000 observations (dataset Kaggle). Quatre modeles de
+classification, un modele de regression revenue, une API FastAPI, un dashboard React et
+un tracking MLflow complet.
 
-```
-Notebooks (local .venv)  →  MLflow (Docker :5000)  →  PostgreSQL (Docker :5432)
-                                    ↓
-                           API FastAPI (Docker :8000)
-                                    ↓
-                         Dashboard Streamlit (Docker :8501)
-```
+---
 
-## Démarrage rapide
-
-### 1. Lancer l'infrastructure Docker
+## Demarrage
 
 ```bash
 docker compose up -d
 ```
 
-Services démarrés :
-- MLflow UI : http://localhost:5000
-- API FastAPI : http://localhost:8000
-- Dashboard Streamlit : http://localhost:8501
+| Service    | URL                        |
+|------------|----------------------------|
+| Dashboard  | http://localhost:80         |
+| API        | http://localhost:8000/docs  |
+| MLflow UI  | http://localhost:5000       |
+| PostgreSQL | localhost:5432              |
 
-### 2. Exécuter les notebooks (dans l'ordre)
+---
+
+## Notebooks -- ordre d'execution
+
+Activer l'environnement local avant de lancer Jupyter :
 
 ```bash
-# Activer l'environnement virtuel
-.venv\Scripts\activate   # Windows
-source .venv/bin/activate  # Linux/macOS
-
-# Lancer Jupyter
+.venv\Scripts\activate        # Windows
+source .venv/bin/activate     # Linux/macOS
 jupyter lab notebooks/
 ```
 
-Ordre d'exécution :
-1. `01_exploration.ipynb` - EDA
-2. `02_preprocessing.ipynb` - Pipeline de préparation
-3. `03_logistic_regression.ipynb` - Modèle baseline
-4. `04_random_forest.ipynb` - Random Forest
-5. `05_xgboost.ipynb` - XGBoost + RandomizedSearch
-6. `06_mlp_classification.ipynb` - MLP PyTorch (GPU)
-7. `07_regression_revenue.ipynb` - Régression revenu à risque
-8. `08_model_comparison.ipynb` - Comparaison, SHAP, écoresponsabilité
+| Notebook | Contenu |
+|----------|---------|
+| 01_exploration | EDA, distributions, correlations |
+| 02_preprocessing | Pipeline sklearn, feature engineering, split 80/20 |
+| 03_logistic_regression | Baseline, seuil optimal F1 = 0.5645 |
+| 04_random_forest | **Modele champion**, seuil optimise = 0.3780 |
+| 05_xgboost | XGBoost base + tuned (RandomizedSearchCV), seuil = 0.50 |
+| 06_mlp_classification | MLP PyTorch + Focal Loss, seuil = 0.2874 |
+| 07_regression_revenue | Regression revenu a risque (Ridge, RF, XGB, MLP) |
+| 08_model_comparison | Comparaison, SHAP, permutation importance, eco-score |
 
-## API FastAPI - Documentation
+---
 
-Documentation interactive : http://localhost:8000/docs (Swagger UI)
+## Resultats des modeles
 
-### GET /health
+Metriques au seuil optimise pour le recall :
 
-Vérifie l'état du service et du modèle chargé.
+| Modele | AUC-ROC | Seuil | Recall churn | F1 churn |
+|--------|---------|-------|--------------|----------|
+| Random Forest (champion) | 0.8093 | 0.3780 | 0.642 | 0.404 |
+| XGBoost tuned | 0.8142 | 0.50 | 0.828 | 0.376 |
+| MLP PyTorch | 0.7492 | 0.2874 | 0.593 | 0.342 |
+| Logistic Regression | 0.7245 | 0.5645 | 0.588 | 0.320 |
 
-```bash
-curl http://localhost:8000/health
-```
+Le Random Forest est selectionne comme modele de production pour sa stabilite en
+validation croisee (CV 5 plis : 0.800 +/- 0.015) et sa reproductibilite sans tuning.
 
-Réponse :
-```json
-{
-  "status": "ok",
-  "model_loaded": true,
-  "model_name": "churn_classifier"
-}
-```
+---
+
+## API -- endpoints
+
+Documentation interactive disponible sur http://localhost:8000/docs
 
 ### POST /predict
-
-Prédit la probabilité de churn et le revenu à risque pour un client.
 
 ```bash
 curl -X POST http://localhost:8000/predict \
   -H "Content-Type: application/json" \
   -d '{
-    "age": 35,
-    "gender": "Male",
-    "tenure_months": 24,
+    "tenure_months": 3,
     "contract_type": "Monthly",
-    "customer_segment": "SMB",
-    "monthly_logins": 5,
-    "weekly_active_days": 2,
+    "customer_segment": "Standard",
+    "monthly_logins": 2,
+    "weekly_active_days": 1,
     "avg_session_time": 15.0,
     "features_used": 3,
-    "usage_growth_rate": -10.0,
-    "last_login_days_ago": 30,
-    "monthly_fee": 79,
-    "total_revenue": 1896,
+    "usage_growth_rate": -0.3,
+    "last_login_days_ago": 20,
+    "monthly_fee": 200.0,
+    "total_revenue": 2000.0,
     "payment_method": "Credit Card",
-    "payment_failures": 2,
-    "discount_applied": "No",
-    "price_increase_last_3m": "Yes",
-    "support_tickets": 4,
-    "avg_resolution_time": 24.0,
-    "csat_score": 4.5,
-    "escalations": 1,
-    "email_open_rate": 0.1,
-    "marketing_click_rate": 0.05,
-    "nps_score": -20,
+    "payment_failures": 3,
+    "support_tickets": 5,
+    "avg_resolution_time": 72.0,
+    "csat_score": 1,
+    "escalations": 2,
+    "email_open_rate": 0.05,
+    "marketing_click_rate": 0.01,
+    "nps_score": -30,
     "referral_count": 0,
-    "signup_channel": "Online",
-    "country": "France",
-    "city": "Paris",
-    "survey_response": "Negative"
+    "gender": "Female",
+    "complaint_type": "Technical"
   }'
 ```
 
-Réponse :
 ```json
 {
-  "churn_probability": 0.7842,
+  "churn_probability": 0.847,
   "churn_prediction": 1,
-  "risk_level": "Élevé",
-  "revenue_at_risk": 1487.65,
-  "model_name": "churn_classifier"
+  "risk_level": "Eleve",
+  "revenue_at_risk": 1694.0,
+  "model_name": "random_forest"
 }
 ```
 
-### GET /model-info
+### GET /clients-at-risk
 
-Informations sur le modèle en production.
+Scoring batch de tous les clients avec filtres et pagination.
 
 ```bash
-curl http://localhost:8000/model-info
+curl "http://localhost:8000/clients-at-risk?min_prob=0.7&segment=Premium&page=1"
 ```
 
-Réponse :
-```json
-{
-  "model_name": "churn_classifier",
-  "framework": "sklearn",
-  "version": "1",
-  "metrics": {
-    "auc_roc": 0.8093,
-    "f1_churn": 0.2727,
-    "recall_churn": 0.2059
-  }
-}
+### GET /clients-at-risk/export
+
+Telechargement CSV du resultat filtre (StreamingResponse, sans ecriture disque).
+
+```bash
+curl "http://localhost:8000/clients-at-risk/export?min_prob=0.5" -o clients.csv
 ```
 
-### Gestion des erreurs
+### Autres endpoints
 
-L'API retourne des codes HTTP appropriés :
+| Endpoint | Description |
+|----------|-------------|
+| GET /health | Etat du service et du modele charge |
+| GET /model-info | Nom, version, metriques du modele en production |
+| GET /stats | Statistiques agregees pour le dashboard Overview |
 
-| Code | Situation |
-|------|-----------|
-| 200  | Prédiction réussie |
-| 422  | Données invalides (champs manquants ou type incorrect) |
-| 503  | Modèle non chargé |
-
-Exemple d'erreur 422 (champ manquant) :
-```json
-{
-  "detail": [
-    {
-      "loc": ["body", "age"],
-      "msg": "field required",
-      "type": "value_error.missing"
-    }
-  ]
-}
-```
-
-## Modèles implémentés
-
-| Modèle | AUC-ROC | F1 (churn) | Recall (churn) |
-|--------|---------|------------|----------------|
-| **Random Forest** (champion) | **0.8093** | 0.2727 | 0.2059 |
-| XGBoost | 0.7661 | 0.2472 | 0.2157 |
-| MLP PyTorch | 0.7560 | - | - |
-| Logistic Regression | 0.7245 | 0.2851 | 0.6569 |
+---
 
 ## Structure du projet
 
 ```
 Projet_Data_Science/
-├── data/
-│   ├── raw/customer_churn.csv
-│   └── processed/          # générés par le notebook 02
-├── notebooks/              # 8 notebooks (01 à 08)
-├── src/
-│   ├── data/               # loader.py, preprocessor.py
-│   ├── models/             # mlflow_utils.py
-│   └── evaluation/         # metrics.py
-├── dashboard/              # Streamlit (app.py + 4 pages)
-├── api/                    # FastAPI (main.py, schemas.py, model_loader.py)
-├── mlflow/                 # Dockerfile + .env
-├── docker-compose.yml
-├── justification.md        # Justifications techniques détaillées
-└── requirements.txt        # Dépendances locales
+|-- api/
+|   |-- main.py             # FastAPI, lifespan, endpoints
+|   |-- model_loader.py     # Chargement avec fallback 3 niveaux
+|   |-- stats.py            # compute_stats(), get_clients_at_risk()
+|-- data/
+|   |-- raw/                # Dataset Kaggle (CSV, non versionne)
+|   |-- processed/          # Modeles .joblib, figures, seuils JSON
+|-- frontend/               # React 18 + Vite + Tailwind + Recharts
+|-- notebooks/              # 01 a 08, un par etape
+|-- src/
+|   |-- data/               # loader.py, preprocessor.py
+|   |-- models/             # mlflow_utils.py
+|   |-- evaluation/         # metrics.py
+|-- docker-compose.yml
+|-- requirements.txt
+|-- justification.md        # Justifications techniques detaillees
 ```
 
-## Dépendances
+---
+
+## Installation locale (hors Docker)
 
 ```bash
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Principales : `mlflow==3.12.0`, `scikit-learn`, `xgboost`, `torch`, `shap`,
-`fastapi`, `streamlit`, `pandas`, `numpy`, `matplotlib`, `plotly`.
+Dependances principales : `scikit-learn`, `xgboost`, `torch`, `mlflow`, `fastapi`,
+`shap`, `pandas`, `matplotlib`.
