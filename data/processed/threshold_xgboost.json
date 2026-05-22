@@ -1,0 +1,8 @@
+{
+  "threshold": 0.5,
+  "recall_at_threshold": 0.8284313725490197,
+  "f1_at_threshold": 0.37639198218262804,
+  "threshold_f1_optimal": 0.6675278544425964,
+  "recall_at_f1_optimal": 0.5882352941176471,
+  "f1_at_f1_optimal": 0.4033613440872029
+}
