@@ -53,8 +53,8 @@ Metriques au seuil optimise pour le recall :
 
 | Modele | AUC-ROC | Seuil | Recall churn | F1 churn |
 |--------|---------|-------|--------------|----------|
-| Random Forest (champion) | 0.8093 | 0.3780 | 0.642 | 0.404 |
-| XGBoost tuned | 0.8142 | 0.50 | 0.828 | 0.376 |
+| Random Forest | 0.8093 | 0.3780 | 0.642 | 0.404 |
+| XGBoost tuned (champion) | 0.8142 | 0.50 | 0.828 | 0.376 |
 | MLP PyTorch | 0.7492 | 0.2874 | 0.593 | 0.342 |
 | Logistic Regression | 0.7245 | 0.5645 | 0.588 | 0.320 |
 
