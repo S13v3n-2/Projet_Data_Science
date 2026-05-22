@@ -14,12 +14,14 @@ Endpoints :
 import logging
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
+import io
 
 from schemas import ClientFeatures, PredictionResponse, HealthResponse, ModelInfoResponse
 from model_loader import model_service
-from stats import compute_stats
+from stats import compute_stats, get_clients_at_risk, get_clients_at_risk_csv
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -117,6 +119,54 @@ def get_stats():
     except Exception as e:
         logger.error(f"Erreur calcul statistiques : {e}", exc_info=True)
         raise HTTPException(status_code=500, detail="Erreur lors du calcul des statistiques.")
+
+
+@app.get("/clients-at-risk", tags=["Clients"])
+def clients_at_risk(
+    segment: str | None = Query(default=None),
+    contract_type: str | None = Query(default=None),
+    min_prob: float = Query(default=0.3, ge=0.0, le=1.0),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=50, ge=1, le=200),
+):
+    """
+    Retourne les clients scored en batch au-dessus du seuil de probabilite de churn.
+    Filtres optionnels : segment, type de contrat, seuil minimum de probabilite.
+    """
+    if not model_service.is_loaded:
+        raise HTTPException(status_code=503, detail="Aucun modele charge.")
+    try:
+        return get_clients_at_risk(
+            model_service, segment, contract_type, min_prob, page, page_size
+        )
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=503, detail=str(e))
+    except Exception as e:
+        logger.error(f"Erreur clients-at-risk : {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Erreur lors du scoring batch.")
+
+
+@app.get("/clients-at-risk/export", tags=["Clients"])
+def clients_at_risk_export(
+    segment: str | None = Query(default=None),
+    contract_type: str | None = Query(default=None),
+    min_prob: float = Query(default=0.3, ge=0.0, le=1.0),
+):
+    """Exporte la liste des clients a risque au format CSV."""
+    if not model_service.is_loaded:
+        raise HTTPException(status_code=503, detail="Aucun modele charge.")
+    try:
+        csv_content = get_clients_at_risk_csv(model_service, segment, contract_type, min_prob)
+        return StreamingResponse(
+            io.StringIO(csv_content),
+            media_type="text/csv",
+            headers={"Content-Disposition": "attachment; filename=clients_a_risque.csv"},
+        )
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=503, detail=str(e))
+    except Exception as e:
+        logger.error(f"Erreur export CSV : {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail="Erreur lors de l'export CSV.")
 
 
 @app.get("/model-info", response_model=ModelInfoResponse, tags=["Monitoring"])

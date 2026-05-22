@@ -118,7 +118,7 @@ function ResultContent({ result, form, onReset }) {
         <h4 className="text-xs font-semibold text-slate-700 uppercase tracking-wide mb-2">
           Facteurs déclenchants
         </h4>
-        <RiskFactors form={form} />
+        <RiskFactors form={form} result={result} />
       </div>
 
       <Button variant="secondary" className="w-full" onClick={onReset}>
