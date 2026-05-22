@@ -9,7 +9,6 @@ __pycache__/
 
 # Données (le dataset doit être téléchargé, pas versionné)
 data/raw/
-data/processed/
 *.csv
 *.joblib
 *.pth
